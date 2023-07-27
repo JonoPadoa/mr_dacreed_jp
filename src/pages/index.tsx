@@ -37,26 +37,37 @@ const Home: NextPage = () => {
           </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
-              className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
+              className="flex max-w-xs justify-center gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-black"
               href="input/input"
             >
               <h3 className="text-2xl font-bold">INPUT</h3>
             </Link>
 
             <Link
-              className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
+              className="flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-black"
               href="/namedLibrary/namedLibrary"
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+            <div className="hover:white/50 flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white">
               {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
             </div>
             <div className="m-8">
               <AuthShowcase />
+            </div>
+            <div>
+              {" "}
+              {user.isSignedIn && (
+                <Link
+                  className="flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-black"
+                  href="/adminPage"
+                >
+                  <h3 className="text-2xl font-bold">ADMIN ONLY</h3>
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -71,16 +82,10 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div>
+      <div className="text-2xl font-bold text-white">
         <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
   }
-  return (
-    <div>
-      <p>Not signed in</p>
-      <SignInButton />
-    </div>
-  );
 };
 export { AuthShowcase };

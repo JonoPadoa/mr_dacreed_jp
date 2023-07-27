@@ -6,12 +6,13 @@ interface ButtonGroupProps {
 const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
   return (
     <>
-      <div className="flex flex-col justify-center items-center ">
+      <div className="flex flex-col items-center justify-center ">
         <p>Question Type</p>
         <button
           className="btn m-2 w-40 drop-shadow-md"
           onClick={() => {
-            const content = "Multiple Choice"; // Change this to the desired content for this button
+            const content =
+              "Displaying the content of the material here with an onClick"; // Change this to the desired content for this button
             onSelect(content);
           }}
         >
