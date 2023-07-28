@@ -16,28 +16,28 @@ const SideMenu = () => {
       </div>
 
       <Link
-        href="/"
+        href="#"
         className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
         aria-current="page"
       >
         Question1
       </Link>
       <Link
-        href="/"
+        href="#"
         className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
         aria-current="page"
       >
         Question2
       </Link>
       <Link
-        href="/"
+        href="#"
         className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
         aria-current="page"
       >
         Question3
       </Link>
       <Link
-        href="/"
+        href="#"
         className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
         aria-current="page"
       >
