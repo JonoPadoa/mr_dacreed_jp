@@ -9,7 +9,7 @@ import StickyFooter from "~/pages/components/jpComponents/StickyFooter";
 // import { api } from "~/utils/api";
 import TopNav from "~/pages/components/jpComponents/TopNav";
 
-export default function jono1() {
+export default function Jono1() {
   const { user } = useUser();
   return (
     <div>
