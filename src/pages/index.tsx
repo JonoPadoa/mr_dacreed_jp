@@ -27,14 +27,12 @@ const Home: NextPage = () => {
         {/* <Header /> */}
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]">
-            {" "}
             <span
               className="larger-font text-[#194759]"
               style={{ fontSize: "100px" }}
             >
               WELCOME
-            </span>{" "}
-            Test App
+            </span>
           </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
