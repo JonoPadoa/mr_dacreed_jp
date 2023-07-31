@@ -22,7 +22,7 @@ const editing = () => {
         </Link>
         <Link
           className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
-          href="/input/waiting/editing/jono2"
+          href="/input/waiting/editing/Jono2"
         >
           <h3 className="text-2xl font-bold">Jono 2</h3>
         </Link>
