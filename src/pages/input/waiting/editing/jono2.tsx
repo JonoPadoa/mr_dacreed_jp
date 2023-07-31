@@ -1,7 +1,9 @@
 import React from "react";
 
 const Jono2 = () => {
-  return <div>This is a placeholder for the page</div>;
-};
-
+  return (
+    <div>
+      <h1>Placeholder2</h1>
+    </div>
+  );
 export default Jono2;

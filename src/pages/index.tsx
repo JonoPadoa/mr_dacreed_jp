@@ -54,7 +54,9 @@ const Home: NextPage = () => {
               {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
             </div>
-            <div></div>
+            <div className="m-8">
+              <AuthShowcase />
+            </div>
           </div>
         </div>
       </main>
@@ -68,16 +70,16 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div>
-        <p>Hello, {user.fullName}</p>
-        <SignOutButton />
+      <div className="text-2xl font-bold text-white">
+        <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
   }
   return (
     <div>
-      <p>Not signed in</p>
-      <SignInButton />
+      <p className="text-2xl font-bold text-white">
+        There are no current users signed in.
+      </p>
     </div>
   );
 };

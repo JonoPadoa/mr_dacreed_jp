@@ -2,7 +2,6 @@
 import React from 'react'
 import { Header } from '~/componentsRoot/Header'
 import TextAreaForAdmin from '../components/elenasComponents/TextAreaForAdmin'
-import ButtonGroup from '../components/elenasComponents/ButtonGroup'
 
 const admin = () => {
   return (
@@ -24,7 +23,6 @@ flex flex-row items-center justify-center
     <TextAreaForAdmin />
     </section>
     <section className="p-4 px-1 bg-cyan-400 rounded-md flex items-center justify-center col-span-1">Right
-    {/* <ButtonGroup /> */}
     </section>
   </div>
 </div>

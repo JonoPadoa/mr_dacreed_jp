@@ -41,3 +41,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Notes for devlopment 
+NOTES.txt
+CSS examples.txt

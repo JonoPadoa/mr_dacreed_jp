@@ -1,12 +1,7 @@
-// import { z } from "zod";
-// import { signIn, signOut, useSession } from "next-auth/react";
-// import Head from "next/head";
 import { useUser } from "@clerk/nextjs";
-import Link from "next/link";
-import { Header } from "~/componentsRoot/Header";
 import MainView from "~/pages/components/jpComponents/MainView";
 import StickyFooter from "~/pages/components/jpComponents/StickyFooter";
-// import { api } from "~/utils/api";
+
 import TopNav from "~/pages/components/jpComponents/TopNav";
 
 export default function JonosPage() {
