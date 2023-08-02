@@ -18,8 +18,9 @@ export default function Jono1() {
           <div>
             <TopNav />
             <div className="p-2 text-3xl font-bold text-white">
-              {" "}
-              {user?.firstName ? `User logged in: ${user.firstName}` : ""}
+              {user?.firstName
+                ? `User logged in: ${user.firstName}`
+                : "No user logged in."}
             </div>
           </div>
           <div>

@@ -15,7 +15,7 @@ import { useSession } from "next-auth/react";
 
 // const { useQuery } = trpc;
 
-const Home: NextPage = () => {
+const Home: NextPage = (AuthShowcase) => {
   const user = useUser();
   return (
     <>
@@ -54,7 +54,6 @@ const Home: NextPage = () => {
               {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
             </div>
-            <div></div>
           </div>
         </div>
       </main>
@@ -70,15 +69,8 @@ const AuthShowcase: React.FC = () => {
     return (
       <div>
         <p>Hello, {user.fullName}</p>
-        <SignOutButton />
       </div>
     );
   }
-  return (
-    <div>
-      <p>Not signed in</p>
-      <SignInButton />
-    </div>
-  );
 };
 export { AuthShowcase };

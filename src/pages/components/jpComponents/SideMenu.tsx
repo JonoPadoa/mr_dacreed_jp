@@ -61,7 +61,7 @@ const SideMenu = () => {
         aria-current="page"
         onClick={handleFocusMode} // <-- Add the onClick handler here
       >
-        Focus on Heading
+        Modal - Focus
       </a>
       {isModalOpen && <Modal />}
       <Link
