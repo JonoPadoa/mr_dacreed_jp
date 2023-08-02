@@ -13,6 +13,7 @@ datasource db {
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
     // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
     url      = env("DATABASE_URL")
+    //directUrl = env("DIRECT_URL")
 }
 
 model Example {
@@ -61,7 +62,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
-    // topics        Topic[]
+    topics        Topic[]
 }
 
 model VerificationToken {
@@ -72,37 +73,37 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
-// model Topic {
-//     id        String   @id @default(cuid())
-//     createdAt DateTime @default(now())
-//     updatedAt DateTime @updatedAt
-//     title      String
-//     user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-//     userId    String
-//     notes     Note[]
-// }
-// model Note {
-//     id        String   @id @default(cuid())
-//     createdAt DateTime @default(now())
-//     updatedAt DateTime @updatedAt
-//     title      String
-//     content    String
-//     topic      Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
-//     topicId   String
-// }
+ model Topic {
+     id        String   @id @default(cuid())
+     createdAt DateTime @default(now())
+     updatedAt DateTime @updatedAt
+     title     String
+     user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+     userId    String
+     notes     Note[]
+ }
+ model Note {
+     id        String   @id @default(cuid())
+     createdAt DateTime @default(now())
+     updatedAt DateTime @updatedAt
+     title      String
+     content    String
+     topic      Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+     topicId   String
+ }
 
-// model UserPrisma {
-//   id    Int     @id @default(autoincrement())
-//   email String  @unique
-//   name  String?
-//   posts PostPrisma[]
-// }
+ model UserPrisma {
+   id    Int     @id @default(autoincrement())
+   email String  @unique
+   name  String?
+   posts PostPrisma[]
+ }
 
-// model PostPrisma {
-//   id        Int     @id @default(autoincrement())
-//   title     String
-//   content   String?
-//   published Boolean @default(false)
-//   author    UserPrisma    @relation(fields: [authorId], references: [id])
-//   authorId  Int
-// }
+ model PostPrisma {
+   id        Int     @id @default(autoincrement())
+   title     String
+   content   String?
+   published Boolean @default(false)
+   author    UserPrisma    @relation(fields: [authorId], references: [id])
+   authorId  Int
+ }

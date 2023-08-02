@@ -1,29 +1,31 @@
 import { createTRPCRouter, protectedProcedure, publicProcedure} from "~/server/api/trpc";
 import { z } from "zod";
 import { Session } from "@clerk/nextjs/dist/types/server";
-// import { getSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
+import { PrismaClient } from '@prisma/client'
 
+const prisma = new PrismaClient()
 export const topicRouter = createTRPCRouter({
   
-  getAll: protectedProcedure.query(({ ctx }) => {
+  getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.topic.findMany({
       where: {
-        userId: ctx.session?.user.id
+        userId: "user_2T2NwjCmVsicPtKFco0WQXUMT0e"
       },
     });
   }),
 
-create: protectedProcedure
+create: publicProcedure
 .input(z.object({title: z.string()}))
 .mutation(({ctx, input})=>{
- 
+    console.log(ctx.session) 
     return ctx.prisma.topic.create({
-      
-        data: {
+      data: {
             title: input.title,
-            userId: ctx.session?.user.id
+            userId: "user_2T2NwjCmVsicPtKFco0WQXUMT0e"
         }
     })
 })
 
 });
+
