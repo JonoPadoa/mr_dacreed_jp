@@ -2,25 +2,14 @@ import Head from "next/head";
 import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
-
-import { useSession } from "next-auth/react";
-// import { useUser } from "@clerk/nextjs";
-// import { createReactQueryHooks } from '@trpc/react';
-// import superjson from 'superjson';
-
-// const trpc = createReactQueryHooks({
-//   transformer: superjson,
-//   // ...
-// });
-
-// const { useQuery } = trpc;
-
-const Home: NextPage = (AuthShowcase) => {
+import { Header } from "../componentsRoot/Header";
+import { api, type RouterOutputs } from "../utils/api";
+import { useState } from "react";
+const Home: NextPage = () => {
   const user = useUser();
   return (
     <>
       <Head>
-        <title>Dacreed Prototyping</title>
         <link rel="icon" href="/birdFP.png" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
@@ -54,6 +43,14 @@ const Home: NextPage = (AuthShowcase) => {
               {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
             </div>
+            <div className="m-8">
+              <AuthShowcase />
+            </div>
+            <div>
+              {" "}
+              <Header />
+              <Content />
+            </div>
           </div>
         </div>
       </main>
@@ -67,10 +64,91 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div>
-        <p>Hello, {user.fullName}</p>
+      <div className="text-2xl font-bold text-white">
+        <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
   }
+  return (
+    <div>
+      <p className="text-2xl font-bold text-white">
+        There are no current users signed in.
+      </p>
+    </div>
+  );
 };
 export { AuthShowcase };
+
+// print data from DB
+// type Topic = RouterOutputs["topic"]["getAll"] extends Array<infer T> ? T : never;
+// previouse line is replaced with the next one:
+
+type Topic = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  title: string;
+  userId: string;
+};
+
+const Content: React.FC = () => {
+  const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
+  const { data: topics, refetch: refetchTopics } = api.topic.getAll.useQuery(
+    undefined, // no input
+    {
+      onSuccess: (data) => {
+        if (data && data.length > 0 && data[0]) {
+          setSelectedTopic(data[0]);
+        } else {
+          setSelectedTopic(null);
+        }
+      },
+    }
+  );
+
+  const createTopic = api.topic.create.useMutation({
+    onSuccess: () => {
+      void refetchTopics();
+    },
+  });
+
+  return (
+    <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
+      <div className="px-2">
+        <ul className="menu rounded-box w-56 bg-base-100 p-2">
+          {topics?.map((topic) => (
+            <li key={topic.id}>
+              <a
+                href="#"
+                onClick={(evt) => {
+                  evt.preventDefault();
+                  setSelectedTopic(topic);
+                }}
+              >
+                {topic.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="divider"></div>
+        <input
+          type="text"
+          placeholder="New Topic"
+          className="input-bordered input input-sm w-full"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              createTopic.mutate({
+                title: e.currentTarget.value,
+              });
+              e.currentTarget.value = "";
+            }
+          }}
+        />
+      </div>
+      <div className="col-span-3">
+        {/* Content goes here */}
+        {selectedTopic && <div>Selected topic: {selectedTopic.title}</div>}
+      </div>
+    </div>
+  );
+};
