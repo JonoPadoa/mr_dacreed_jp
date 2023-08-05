@@ -3,8 +3,12 @@ import JPTestHeader from "~/pages/components/jpComponents/JPTestHeader";
 import TopNav from "~/pages/components/jpComponents/TopNav";
 import { api, type RouterOutputs } from "~/utils/api";
 import { useState } from "react";
+import { useAuth } from "@clerk/clerk-react";
+import { createClient } from "@supabase/supabase-js";
 
 const Jono2 = () => {
+  const { userId } = useAuth();
+
   return (
     <div>
       <TopNav />

@@ -2,11 +2,19 @@ import Head from "next/head";
 import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
-import { Header } from "../componentsRoot/Header";
-import { api, type RouterOutputs } from "../utils/api";
-import { useState } from "react";
+// import { Header } from "../componentsRoot/Header";
+// import { api, type RouterOutputs } from "../utils/api";
+// import { useState } from "react";
+// import { insertUserData } from "~/server/SupabaseUtils";
+// import { useAuth } from "@clerk/nextjs";
+
 const Home: NextPage = () => {
   const user = useUser();
+  // // const { userId } = useAuth();
+  // if (user.isSignedIn) {
+  //   insertUserData();
+  // }
+
   return (
     <>
       <Head>

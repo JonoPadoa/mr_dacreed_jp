@@ -3,6 +3,7 @@ import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const topicRouter = createTRPCRouter({
+  
   getAll: publicProcedure.query(({ ctx }) => {
     if (ctx.auth?.userId) {
       console.log(`Tester - ${ctx.auth.userId}`)
@@ -10,6 +11,7 @@ export const topicRouter = createTRPCRouter({
         where: {
           userId: ctx.auth.userId,
           // 'user_2T2NwjCmVsicPtKFco0WQXUMT0e'
+          //  user_2TUz5zRc5xEez13KhnhqA50B8m5
           
         },
       });
