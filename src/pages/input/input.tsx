@@ -328,7 +328,13 @@ const CourseForm: React.FC = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    createCourse({ title: courseTitle, description: courseDescription });
+    if (courseTitle.trim() === "" || courseDescription.trim() === ""){
+      alert(`Sorry, but all fields need to be filled in to start your course creation.`)
+    }
+    else {
+      createCourse({ title: courseTitle, description: courseDescription });
+
+    }
   };
 
   return (
