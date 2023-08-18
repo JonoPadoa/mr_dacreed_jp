@@ -4,6 +4,7 @@
 generator client {
     provider = "prisma-client-js"
 }
+
 datasource db {
     provider  = "postgresql"
     // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
@@ -13,20 +14,24 @@ datasource db {
     url       = env("DATABASE_URL")
     directUrl = env("DIRECT_URL")
 }
+
 model Example {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
+
 model Course {
-    id          String   @id @default(cuid())
+    id          String           @id @default(cuid())
     title       String
     description String
     userId      String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    user        User     @relation(fields: [userId], references: [id])
+    createdAt   DateTime         @default(now())
+    updatedAt   DateTime         @updatedAt
+    user        User             @relation(fields: [userId], references: [id])
+    questions   CourseQuestion[]
 }
+
 model CourseHeader {
     id          String   @id @default(cuid())
     createdAt   DateTime @default(now())
@@ -37,6 +42,7 @@ model CourseHeader {
     userId      String
     user        User     @relation(fields: [userId], references: [id])
 }
+
 model CourseQuestion {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -50,7 +56,10 @@ model CourseQuestion {
     answer6   String?
     userId    String
     user      User     @relation(fields: [userId], references: [id])
+    Course    Course?  @relation(fields: [courseId], references: [id])
+    courseId  String?
 }
+
 model TestString {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -59,11 +68,13 @@ model TestString {
     userId    String
     user      User     @relation(fields: [userId], references: [id])
 }
+
 model Library {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
+
 // Necessary for Next auth
 model Account {
     id                String  @id @default(cuid())
@@ -79,8 +90,10 @@ model Account {
     id_token          String? @db.Text
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
     @@unique([provider, providerAccountId])
 }
+
 model Session {
     id           String   @id @default(cuid())
     sessionToken String   @unique
@@ -88,6 +101,7 @@ model Session {
     expires      DateTime
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
 model User {
     id              String           @id @default(cuid())
     name            String?
@@ -102,12 +116,15 @@ model User {
     CourseHeaders   CourseHeader[]
     course          Course[]
 }
+
 model VerificationToken {
     identifier String
     token      String   @unique
     expires    DateTime
+
     @@unique([identifier, token])
 }
+
 model Topic {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -117,6 +134,7 @@ model Topic {
     userId    String
     notes     Note[]
 }
+
 model Note {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
