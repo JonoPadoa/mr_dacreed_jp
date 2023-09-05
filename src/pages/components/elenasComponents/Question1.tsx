@@ -34,8 +34,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
 
     ]
     .filter((answer): answer is string => answer !== null)
-     .slice(0, 2)
-
+     // .slice(0, 2)                                              // shows only 2 answers
   );
 
   const [isModal4Open, setIsModal4Open] = useState(false);
@@ -81,7 +80,6 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
     if (componentNames.length > 0 && componentNames[0]) {
       setComponents([...components, componentNames[0]]);
       setAnswerValues([...answerValues, ""]);
-      // componentNames.splice(0, 1)
       setComponentNames(componentNames.slice(1));
     } else {
       window.alert("No more answers to add");
@@ -126,7 +124,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
       {/* <span className="ml-3  font-bold text-accentd">Question 1</span> */}
 
       <div className="flex flex-col ">
-        <span className="ml-3  font-bold text-accentd">Question 1</span>
+        <span className="ml-3  font-bold text-accentd"> ⁝⁝ Question 1</span>
         <div>
           {/* question */}
           <div>
@@ -170,11 +168,8 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
                           src="/icons/delete.png"
                           alt="delete"
                           className="inline-block "
-
                           width={20}
                           height={20}
-
-
                         />
                       </button>
                     </div>
@@ -184,14 +179,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
             </div>
 
 
-            {/* <Commentary
-              placeholder=""
-              type="text"
-              value={commentary ?? ""}
-              onChange={(e) => setCommentary(e.target.value)}
-              charsLeft={commentary ? 150 - commentary.length : 150}
-
-            /> */}
+{/* Commentary */}
             <div>  {showCommentary && (
         <Commentary
           placeholder=""
@@ -201,15 +189,9 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
           charsLeft={commentary ? 150 - commentary.length : 150}
         />
       )}</div>
-            {/* <Guidance
 
-              placeholder=""
-              type=""
-              onChange={(e) => setGuidance(e.target.value)}
-              value={guidance ?? ""}
-              charsLeft={guidance ? 150 - guidance.length : 150}
 
-            /> */}
+{/* Guidance */}
               {showGuidance && (
         <Guidance
           placeholder=""

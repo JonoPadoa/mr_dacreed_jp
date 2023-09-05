@@ -46,15 +46,6 @@ const Jono2 = () => {
 
 export default Jono2;
 
-type Course = {
-  id: string;
-  title: string;
-  description: string;
-  userId: string;
-  createdAt: Date;
-  updatedAt: Date;
-};
-
 const CourseForm: React.FC = () => {
   const [courseTitle, setCourseTitle] = useState("");
   const [courseDescription, setCourseDescription] = useState("");

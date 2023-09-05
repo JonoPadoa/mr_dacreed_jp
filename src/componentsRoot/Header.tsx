@@ -13,11 +13,13 @@ export const Header = () => {
         <div className="flex h-20 w-20 items-center justify-center">
           {user?.firstName ? (
             <div className="w-full">
+              {/* The below needs to remain an <img> rather than <Image> as the nextAuth requires it for processing apparently. */}
               <img
-                className="rounded-full"
+                className="rounded-full border-solid"
                 src={user.profileImageUrl ?? ""}
                 alt={user?.firstName ?? ""}
               />
+              {/* The above needs to remain an <img> rather than <Image> as the nextAuth requires it for processing apparently. */}
             </div>
           ) : (
             <div></div>

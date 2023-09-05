@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { useState } from "react";
 
@@ -34,7 +35,7 @@ const SecondButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/TFImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -42,7 +43,7 @@ const SecondButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen4(false)}
             >
               Close
@@ -58,7 +59,7 @@ const SecondButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/MCImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -66,7 +67,7 @@ const SecondButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen5(false)}
             >
               Close
@@ -82,7 +83,7 @@ const SecondButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/MCImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -90,7 +91,7 @@ const SecondButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen6(false)}
             >
               Close
@@ -106,7 +107,7 @@ const SecondButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/MCImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -114,7 +115,7 @@ const SecondButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen7(false)}
             >
               Close
@@ -130,7 +131,7 @@ const SecondButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/MCImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -138,7 +139,7 @@ const SecondButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen8(false)}
             >
               Close
@@ -154,7 +155,7 @@ const SecondButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/MCImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -162,7 +163,7 @@ const SecondButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen9(false)}
             >
               Close

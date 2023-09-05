@@ -1,11 +1,8 @@
-import Link from "next/link";
+import Image from "next/image";
 import React from "react";
-import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
 
 const FirstButtons = () => {
-  const { user } = useUser();
-
   const [isModalOpen1, setModalOpen1] = useState(false);
   const [isModalOpen2, setModalOpen2] = useState(false);
   const [isModalOpen3, setModalOpen3] = useState(false);
@@ -38,7 +35,7 @@ const FirstButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/MCImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -62,7 +59,7 @@ const FirstButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/OEImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -86,7 +83,7 @@ const FirstButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/DnDImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -110,7 +107,7 @@ const FirstButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/TFImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -134,7 +131,7 @@ const FirstButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/MCImg.png"
                 alt="MultiChoice option"
                 width="500"
@@ -158,7 +155,7 @@ const FirstButtons = () => {
         <div className="absolute inset-0 flex flex-row items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="flex flex-col items-center justify-center">
-              <img
+              <Image
                 src="/MCImg.png"
                 alt="MultiChoice option"
                 width="500"

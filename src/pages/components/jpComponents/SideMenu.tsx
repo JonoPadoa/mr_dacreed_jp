@@ -3,6 +3,7 @@ import React from "react";
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
 import JPTextEditor from "./JPTextEditor";
+import Image from "next/image";
 
 const SideMenu = () => {
   const { user } = useUser();
@@ -26,15 +27,15 @@ const SideMenu = () => {
                 HEADING EDITOR:
               </span>
               <JPTextEditor />
-              <button className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50">
+              <button className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white">
                 SAVE TO DRAFT
               </button>
-              <button className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50">
+              <button className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white">
                 SAVE
               </button>
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen(false)}
             >
               Close
@@ -48,7 +49,7 @@ const SideMenu = () => {
   return (
     <div className="container m-4 flex w-40 flex-col items-center justify-start rounded-xl bg-black">
       <div className="my-3 flex h-20 w-20 items-center justify-center rounded-lg bg-yellow-100">
-        <img
+        <Image
           className="rounded-lg"
           src={user?.profileImageUrl ?? ""}
           alt={user?.firstName ?? ""}
@@ -57,7 +58,7 @@ const SideMenu = () => {
 
       <a
         href="#"
-        className="m-4 rounded-md bg-sky-500/75 p-5 text-sm font-medium text-white hover:bg-sky-400/50"
+        className="bg-sky-500/75 hover:bg-sky-400/50 m-4 rounded-md p-5 text-sm font-medium text-white"
         aria-current="page"
         onClick={handleFocusMode} // <-- Add the onClick handler here
       >
@@ -66,21 +67,21 @@ const SideMenu = () => {
       {isModalOpen && <Modal />}
       <Link
         href="/"
-        className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
+        className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
         aria-current="page"
       >
         Question2
       </Link>
       <Link
         href="/"
-        className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
+        className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
         aria-current="page"
       >
         Question3
       </Link>
       <Link
         href="/"
-        className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
+        className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
         aria-current="page"
       >
         Question4

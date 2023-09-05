@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 interface UploadImgsProps {
   onMediaUpload: (media: string) => void;
 }
 
 const UploadImgs: React.FC<UploadImgsProps> = ({ onMediaUpload }) => {
-  const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
+  // const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
         const mediaDataUrl = reader.result as string;
-        setSelectedMedia(mediaDataUrl);
+        // setSelectedMedia(mediaDataUrl);
         onMediaUpload(mediaDataUrl);
       };
       reader.readAsDataURL(file);
@@ -52,7 +52,12 @@ const UploadImgs: React.FC<UploadImgsProps> = ({ onMediaUpload }) => {
               SVG, PNG, JPG or GIF (MAX. 800x400px)
             </p>
           </div>
-          <input id="dropzone-file" type="file" className="hidden" onChange={handleFileChange} />
+          <input
+            id="dropzone-file"
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+          />
           {/* <button
             type="button"
             onClick={handleClearMedia}

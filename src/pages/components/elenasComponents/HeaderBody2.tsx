@@ -81,7 +81,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
       <div className="m-4 flex h-auto flex-col p-4 ">
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <label className="flex flex-col">
-            <span className="ml-3 font-bold">Title:</span>
+            <span className="ml-3 font-bold"> ⁝⁝ Title:</span>
             <input
               placeholder="Title goes here"
               className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
@@ -97,7 +97,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
           </span>
 
           <label className="flex flex-col">
-            <span className="ml-3 font-bold">Sub-heading:</span>
+            <span className="ml-3 font-bold">⁝⁝ Sub-heading:</span>
             <input
               placeholder="Sub-heading goes here"
               className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
@@ -112,7 +112,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
             {/* <span className="ml-3 mt-0">Characters left: {charsLeft}</span> */}
           </label>
           <label className="flex flex-col">
-            <span className="ml-3 font-bold">Description:</span>
+            <span className="ml-3 font-bold">⁝⁝ Description:</span>
             <input
               placeholder="Description goes here"
               className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"

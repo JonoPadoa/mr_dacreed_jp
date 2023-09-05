@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-// import HeaderBody from "./HeaderBody";
-// import Question1 from "./Question1";
-
-// import { set } from "zod";
 import HeaderBody2 from "./HeaderBody2";
 import QuestionsList from "~/componentsRoot/QuestionsList";
+import CourseSectionPlaceholder from "~/componentsRoot/CourseSectionPlaceholder";
 
 function Icon({ id, open }: { id: number; open: number }) {
   return (
@@ -35,40 +32,81 @@ interface AccordionMiddle2Props {
   courseId: string;
 }
 
-const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
-  const [open, setOpen] = React.useState(0);
 
-  const handleOpen = (value: React.SetStateAction<number>) =>
-    setOpen(open === value ? 0 : value);
+
+
+const AccordionMiddle2 : React.FC<AccordionMiddle2Props> = ({ courseId }) => {
+  const [openDescription, setOpenDescription] = useState<boolean>(false);
+  const [openSections, setOpenSections] = useState<boolean>(false);
+  const [openTest, setOpenTest] = useState<boolean>(false);
+
+  const toggleSection = (section: string) => {
+    switch (section) {
+      case "description":
+        setOpenDescription(!openDescription);
+        break;
+      case "sections":
+        setOpenSections(!openSections);
+        break;
+      case "test":
+        setOpenTest(!openTest);
+        break;
+      default:
+        break;
+    }
+  };
 
   console.log("AccodrionMiddle2 courseId: ", courseId);
   const charsLeft = 150;
   return (
     <div>
-      <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
+      <Accordion
+        open={openDescription}
+        icon={<Icon id={1} open={openDescription ? 1 : 0} />}
+      >
         <AccordionHeader
           className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
-          onClick={() => handleOpen(1)}
+          onClick={() => toggleSection("description")}
         >
           Course Description
         </AccordionHeader>
-        <AccordionBody className="rounded-5xl  bg-lightsecondaryd content-center justify-center  border-4">
+        <AccordionBody className="rounded-5xl content-center justify-center border-4 bg-lightsecondaryd">
           {/* <HeaderBody /> */}
           <HeaderBody2 courseId={courseId} charsLeft={charsLeft} />
         </AccordionBody>
       </Accordion>
-      <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
+
+      {/* =======================================> Course Sections <================================================== */}
+
+      <Accordion
+        open={openSections}
+        icon={<Icon id={2} open={openSections ? 2 : 0} />}
+      >
         <AccordionHeader
           className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
-          onClick={() => handleOpen(2)}
+          onClick={() => toggleSection("sections")}
         >
-          Course Test
+          Course Sections
         </AccordionHeader>
 
         <br />
-        <AccordionBody className="rounded-5xl  bg-lightsecondaryd content-center justify-center  border-4">
-          <QuestionsList courseId={courseId} />
+        <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd">
+          <CourseSectionPlaceholder />
+        </AccordionBody>
+      </Accordion>
 
+      {/* =======================================> Course Test <=============================================== */}
+
+      <Accordion open={openTest} icon={<Icon id={3} open={openTest ? 3 : 0} />}>
+        <AccordionHeader
+          className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
+          onClick={() => toggleSection("test")}
+        >
+          Course Test
+        </AccordionHeader>
+        <br />
+        <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd">
+          <QuestionsList courseId={courseId} />
         </AccordionBody>
       </Accordion>
     </div>

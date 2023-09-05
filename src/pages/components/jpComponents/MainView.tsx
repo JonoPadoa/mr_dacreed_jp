@@ -23,38 +23,38 @@ const MainView = () => {
 
         <Link
           href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
+          className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
           aria-current="page"
         >
           Heading
         </Link>
         <Link
           href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
+          className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
           aria-current="page"
         >
           Description
         </Link>
         <Link
           href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
+          className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
           aria-current="page"
         >
           Section +
         </Link>
         <Link
           href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
+          className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
           aria-current="page"
         >
           Questions
         </Link>
         <Link
           href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
+          className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
           aria-current="page"
         >
-          <img rel="icon" src="/birdFP.png" />
+          <img rel="icon" src="/birdFP.png" alt="logo" />
         </Link>
       </div>
     </div>

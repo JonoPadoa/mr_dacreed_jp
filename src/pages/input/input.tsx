@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import { Header } from "~/componentsRoot/Header";
 import { useUser } from "@clerk/nextjs";
-import { useState,  Fragment } from "react";
+import { useState, Fragment } from "react";
 import { api } from "~/utils/api";
 import Modal4 from "../../componentsRoot/Modal4";
 import { Transition } from "@headlessui/react";
@@ -10,6 +10,8 @@ import FooterBird from "~/componentsRoot/FooterBird";
 import { type Course } from "@prisma/client";
 import Image from "next/image";
 import CreateCourseForm from "../components/elenasComponents/CreateCourseForm";
+import ButtonBack from "~/componentsRoot/ButtonBack";
+import ButtonNext from "~/componentsRoot/ButtonNext";
 
 interface CourseCreationModalProps {
   charsLeft: number;
@@ -22,116 +24,94 @@ const Input = () => {
   const { user } = useUser();
   const [modalOpen, setModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
 
-const [showModal2, setShowModal2] = useState(false);
-
-// ======================> Course Creation Modal <============================== //
-const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft }) => {
-  return (
-    <div>
-      <Transition
-        show={showModal2}
-        enter="transition-opacity duration-75"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-150"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <Fragment>
-          <Modal4
-            isVisible={showModal2}
-            onClose={() => setShowModal2(false)}
-            // children={undefined}
-          >
-            <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
-              <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50  ">
-                {/* <!--Modal title--> */}
-                <h5
-                  className="flex-1 text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200 items-center"
-                  id="exampleModalLabel"
-                >
-                 Create New Course 
-                </h5>
-                {/* <!--Close button--> */}
-                <button
-                  type="button"
-                  className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none text-primaryd"
-                  data-te-modal-dismiss
-                  aria-label="Close"
-                  onClick={() => setShowModal2(false)}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="h-6 w-6"
+  // ======================>  Create New Course Modal <============================== //
+  const CourseCreationModal: React.FC<CourseCreationModalProps> = ({
+    charsLeft,
+  }) => {
+    const handleBackButtonClick = () => {
+      setShowModal2(false); // Close the modal when the "Back" button is clicked
+    };
+    return (
+      <div>
+        <Transition
+          show={showModal2}
+          enter="transition-opacity duration-75"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <Fragment>
+            <Modal4
+              isVisible={showModal2}
+              onClose={() => setShowModal2(false)}
+              // children={undefined}
+            >
+              <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
+                <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50  ">
+                  {/* <!--Modal title--> */}
+                  <h5
+                    className="flex-1 items-center text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200"
+                    id="exampleModalLabel"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
+                    Create New Course
+                  </h5>
+                  {/* <!--Close button--> */}
+                  <button
+                    type="button"
+                    className="box-content rounded-none border-none text-primaryd hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                    data-te-modal-dismiss
+                    aria-label="Close"
+                    onClick={() => setShowModal2(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      className="h-6 w-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
 
-              {/* <!--Modal body--> */}
-              <div
-                className="relative flex items-center justify-center first-line:flex-row bg-lightsecondaryd p-0"
-                data-te-modal-body-ref
-              >
-{/* Create new course */}
-<CreateCourseForm charsLeft={charsLeft} />
-
-
-              </div>
-              {/* <!--Modal footer--> */}
-              <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                <button
-                  type="button"
-                  className=" border border-primaryd hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-modal-dismiss
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                  onClick={() => setShowModal2(false)}
+                {/* <!--Modal body--> */}
+                <div
+                  className="relative flex items-center justify-center bg-lightsecondaryd p-0 first-line:flex-row"
+                  data-te-modal-body-ref
                 >
-                 &lt; Back
-                </button>
-
-
-                <Link
-            href={{
-              pathname: `/input/waiting/editing/common`,
-              // query: { editCourseId: course.id },
-            }}
-          >
-
-                <button
-                  type="button"
-                  className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                >
-                  Next &gt;
-                </button>
-                </Link>
+                  {/* Create new course */}
+                  <CreateCourseForm charsLeft={charsLeft} />
+                </div>
+                {/* <!--Modal footer--> */}
+                <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                  <ButtonBack onClick={handleBackButtonClick} />
+                  <ButtonNext href="/input/waiting/editing/common" />
+                </div>
               </div>
-            </div>
-          </Modal4>
-        </Fragment>
-      </Transition>
-    </div>
-  );
-};
+            </Modal4>
+          </Fragment>
+        </Transition>
+      </div>
+    );
+  };
 
-  
-// ======================> Course Input Modal <============================== //
-  
+  // ======================> Course Input Modal <============================== //
 
   const CourseInputModal = () => {
+    const handleBackButtonClick2 = () => {
+      setShowModal(false); // Close the modal when the "Back" button is clicked
+    };
+
     return (
       <div>
         <Transition
@@ -149,23 +129,19 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
               onClose={() => setShowModal(false)}
               // children={undefined}
             >
-
-            <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
+              <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
                 <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
                   {/* <!--Modal title--> */}
                   <h5
-                  className="flex-1 text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200 items-center"
-                  id="exampleModalLabel"
-
+                    className="flex-1 items-center text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200"
+                    id="exampleModalLabel"
                   >
                     Upload Doc
                   </h5>
                   {/* <!--Close button--> */}
                   <button
                     type="button"
-
-                    className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none  text-primaryd"
-
+                    className="box-content rounded-none border-none text-primaryd hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none  focus:outline-none"
                     data-te-modal-dismiss
                     aria-label="Close"
                     onClick={() => setShowModal(false)}
@@ -191,8 +167,8 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
                 <div
                   className="relative flex items-center justify-center p-4 first-line:flex-row  "
                   data-te-modal-body-ref
-                  style={{ backgroundColor: 'white' }}
-               >
+                  style={{ backgroundColor: "white" }}
+                >
                   <div className="container mx-auto flex  flex-col items-center justify-center ">
                     {/* upload files */}
                     <label
@@ -250,34 +226,20 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
                   </div>
 
                   <div className="container mx-auto flex items-center justify-center">
-
-                    <Image src="/courseTone_1.jpg" alt="choose tone" width={300} height={300}/>
-
+                    <Image
+                      src="/courseTone_1.jpg"
+                      alt="choose tone"
+                      width={300}
+                      height={300}
+                    />
                   </div>
                 </div>
 
                 {/* <!--Modal footer--> */}
+
                 <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-
-                <button
-                  type="button"
-                  className=" border border-primaryd hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-modal-dismiss
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                  onClick={() => setShowModal(false)}
-                >
-                 &lt; Back
-                </button>
-                <button
-                  type="button"
-                  className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                >
-                  Next &gt;
-                </button>
-
+                  <ButtonBack onClick={handleBackButtonClick2} />
+                  <ButtonNext href="/input/waiting/editing/common" />
                 </div>
               </div>
             </Modal4>
@@ -289,16 +251,18 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
 
   return (
     <div className="min-h-screen ">
-      <div >
+      <div>
         <Header />
-      
 
         <main className="flex flex-col items-center justify-center  bg-[#EEEEEE] bg-opacity-60">
-          <div >
+     
+          <div>
+         
             <div className="my-6 flex flex-row bg-[#D9E5E2] ">
+           
               <a href="../" className=" absolute left-20  ">
                 <svg
-                  className="inline-block w-5"
+                  className="inline-block w-5 bg-"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -306,6 +270,7 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
                   stroke="currentColor"
                   // class="h-6 w-6"
                 >
+                  
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -314,6 +279,7 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
                 </svg>
                 Back
               </a>
+          
             </div>
           </div>
 
@@ -325,11 +291,11 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
                 <div className="   rounded-3xl ">
                   <a
                     aria-current="page"
-                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  hover:bg-[#D9E5E2] "
                     href="#"
                     onClick={() => setShowModal2(true)}
                   >
-                    <h3 className="text-2xl font-bold">New Course</h3>
+                    <h3 className="text-2xl font-bold">Create New Course</h3>
                   </a>
                   {showModal2 && <CourseCreationModal charsLeft={0} />}
                 </div>
@@ -339,11 +305,11 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  hover:bg-[#D9E5E2] "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
-                    <h3 className="text-2xl font-bold">Upload docs</h3>
+                    <h3 className="text-2xl font-bold">Create  from Existing Content</h3>
                   </a>
                   {showModal && <CourseInputModal />}
                 </div>
@@ -353,26 +319,17 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  hover:bg-[#D9E5E2] "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
-                    <h3 className="text-2xl font-bold">AI generated</h3>
+                    <h3 className="text-2xl font-bold">Generate using smart-AI</h3>
                   </a>
                   {showModal && <CourseInputModal />}
                 </div>
               </div>
 
-              {/* <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
-                <div className="   rounded-3xl border-solid border-accentd ">
-                  <Link
-                    className="text m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
-                    href="/input/waiting/waiting"
-                  >
-                    <h3 className="text-2xl font-bold">Cont...</h3>
-                  </Link>
-                </div>
-              </div> */}
+
             </div>
             <div className=" flex items-center justify-center">
               <input
@@ -394,17 +351,12 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
                 <div className="h-auto w-full">
                   <DraftCourses />
                 </div>
-
               </div>
             </section>
-         
-         
           </section>
           <FooterBird height={40} />
         </main>
       </div>
-
-
     </div>
   );
 };
@@ -415,7 +367,7 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div className="text-2xl  text-primaryd font-normal">
+      <div className="text-2xl  font-normal text-primaryd">
         <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
@@ -479,18 +431,18 @@ const CourseForm: React.FC = () => {
   );
 };
 
-  const DraftCourses = () => {
-    const [courses, setCourses] = useState<Course[]>([]);
-  
-    const query = api.course.getAll.useQuery();
-    
-    useEffect(() => {
-      if (query.data && query.data.length > 0) {
-        setCourses(query.data);
-      } else {
-        setCourses([]);
-      }
-    }, [query.data]);
+const DraftCourses = () => {
+  const [courses, setCourses] = useState<Course[]>([]);
+
+  const query = api.course.getAll.useQuery();
+
+  useEffect(() => {
+    if (query.data && query.data.length > 0) {
+      setCourses(query.data);
+    } else {
+      setCourses([]);
+    }
+  }, [query.data]);
   return (
     <div className="flex w-full flex-col">
       {courses?.map((course) => (
@@ -520,8 +472,6 @@ const CourseForm: React.FC = () => {
   );
 };
 
-
-
-function createCourse(arg0: { title: string; description: string; }) {
+function createCourse(arg0: { title: string; description: string }) {
   throw new Error("Function not implemented.");
 }

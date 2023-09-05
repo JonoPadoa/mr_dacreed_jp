@@ -17,15 +17,12 @@ const Common = () => {
       <div className="flex pl-10 pr-10 ">
         <div className="w-20 flex-none ">L Pannel</div>
         <div className="w-45  grow">
-          {" "}
           <AccordionMiddle2 courseId={courseId} />
         </div>
         <div className="w-25 flex-none ">
-          {" "}
           <RpannelPlaceholder />
         </div>
         <div className="w-25 top-15 fixed right-8 flex-none">
-          {" "}
           <Rpannel />
         </div>
       </div>
