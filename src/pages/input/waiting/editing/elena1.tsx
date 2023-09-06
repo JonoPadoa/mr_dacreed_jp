@@ -30,8 +30,8 @@ const Admin = () => {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
           <section
             className="col-span-1 flex
-  flex-col items-center
-     justify-center rounded-md bg-gray-100 p-4 px-1"
+                      flex-col items-center
+                      justify-center rounded-md bg-gray-100 p-4 px-1"
           >
             <ButtonsQ onSelect={handleButtonSelection} />
 
@@ -55,17 +55,16 @@ const Admin = () => {
           </section>
           <section
             className="col-span-2
-     flex 
-     grid-cols-1 flex-col items-center justify-center rounded-md bg-gray-100 p-4"
+                     flex 
+                     grid-cols-1 flex-col items-center justify-center rounded-md bg-gray-100 p-4"
           >
             <TextEditor content={selectedButtonContent} />
             {/* <TextAreaForAdmin /> */}
           </section>
           <section
             className="col-span-1 flex flex-col
-
-    items-center  
-    justify-center rounded-md bg-gray-100 p-4 px-1 "
+                         items-center  
+                        justify-center rounded-md bg-gray-100 p-4 px-1 "
           >
             <ButtonGroup onSelect={handleButtonSelection} />
             <button className="btn btn-circle btn-outline my-10">

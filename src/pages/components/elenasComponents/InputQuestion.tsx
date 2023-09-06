@@ -25,21 +25,24 @@ const InputQuestion: React.FC<InputQuestion> = ({
           type={type}
           placeholder={placeholder}
           className="input input-bordered m-2  w-full rounded-sm shadow-inner-top "
-          // className="shadow-inner shadow-sm m-2 mt-1 p-2 w-full rounded-sm"
-
           name={name}
           onChange={onChange}
           value={value}
         />
       </div>
       <div className="flex justify-between">
-
-      <span className="ml-3 mt-0">Characters left: {charsLeft}</span>
-      {/*     delete icon    */}
-      <span className="ml-3 mt-0 pr-2 flex items-center ">Delete
-        <Image src="/icons/delete.png" alt="delete" className=" inline-block" width={6}  height={6}/>
-         </span>
-
+        <span className="ml-3 mt-0">Characters left: {charsLeft}</span>
+        {/*     delete icon    */}
+        <span className="ml-3 mt-0 flex items-center pr-2 ">
+          Delete
+          <Image
+            src="/icons/delete.png"
+            alt="delete"
+            className=" inline-block"
+            width={6}
+            height={6}
+          />
+        </span>
       </div>
     </div>
   );

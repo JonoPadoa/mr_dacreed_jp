@@ -1,5 +1,4 @@
 import { useUser } from "@clerk/nextjs";
-import { SignInButton } from "@clerk/nextjs";
 
 export const Header = () => {
   const { user } = useUser();
@@ -15,11 +14,10 @@ export const Header = () => {
             <div className="w-full">
               {/* The below needs to remain an <img> rather than <Image> as the nextAuth requires it for processing apparently. */}
               <img
-                className="rounded-full border-solid"
+                className="rounded-full border-solid w-20"
                 src={user.profileImageUrl ?? ""}
                 alt={user?.firstName ?? ""}
               />
-              {/* The above needs to remain an <img> rather than <Image> as the nextAuth requires it for processing apparently. */}
             </div>
           ) : (
             <div></div>

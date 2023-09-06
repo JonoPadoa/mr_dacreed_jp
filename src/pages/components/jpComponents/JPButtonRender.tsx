@@ -16,7 +16,6 @@ const JPButtonRender = () => {
   };
 
   return (
-    // <div className="mb-4 flex h-96 flex-row items-center justify-center rounded-lg bg-gradient-to-b from-[#075985] to-[#7dd3fc]">
     <div className="from-cyan-500 mb-4 flex h-96 flex-row items-center justify-center rounded-lg bg-gradient-to-r to-blue-500">
       <div className="h-62 mb-4 flex  shrink-0 flex-row items-center justify-center rounded-lg bg-white">
         {!showMore && <FirstButtons />}

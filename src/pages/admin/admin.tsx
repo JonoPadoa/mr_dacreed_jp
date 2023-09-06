@@ -9,9 +9,7 @@ const admin = () => {
       <Header />
       <div
         className="
-flex flex-row items-center justify-center 
-
-"
+flex flex-row items-center justify-center "
       >
         <h1>CREATE REVIEW APPROVE</h1>
       </div>

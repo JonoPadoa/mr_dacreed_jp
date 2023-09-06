@@ -14,7 +14,7 @@ export const exampleRouter = createTRPCRouter({
       };
     }),
 
-    // how to connect to Prisma . findMany on example table
+  // how to connect to Prisma . findMany on example table
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.example.findMany();
   }),

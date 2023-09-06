@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-li {
+.li-quizz-class {
     list-style-type: none;
     cursor: pointer;
     margin: 9px 0;
@@ -12,17 +12,12 @@ li {
     border-radius: 10px;
     background-color: rgb(216, 233, 233);
   }
-  
-  .li-hover:hover {
-    background-color: #2f6a9b;
+  .li-quizz-class-hover:hover {
+    background-color: #2F6A9B;
     columns: #fff;
     color: white;
   }
-  
-  .li-selected {
+  .li-quizz-class-selected {
     color: #fff;
     background-color: #000925;
   }
-
-
-

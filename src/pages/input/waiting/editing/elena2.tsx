@@ -100,7 +100,6 @@ const Elena2 = () => {
       <div className="p-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
           <section className="col-span-1 flex flex-col items-center justify-center rounded-md bg-gray-100 p-4 px-1">
-            {/* B Step 3  */}
             <ButtonsQ
               onSelect={(content) => {
                 handleButtonSelection(content);
@@ -113,7 +112,7 @@ const Elena2 = () => {
             />
             <button
               className="btn btn-circle btn-outline my-10"
-              onClick={() => setIsQtemplateVisible(false)} // A Add this to close Qtemplate on click
+              onClick={() => setIsQtemplateVisible(false)} 
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

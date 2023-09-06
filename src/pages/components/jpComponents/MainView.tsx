@@ -3,7 +3,7 @@ import React from "react";
 import TextEditor from "../elenasComponents/TextEditor";
 import JPTextEditor from "./JPTextEditor";
 import SideMenu from "./SideMenu";
-
+import Image from 'next/image'
 const MainView = () => {
   return (
     <div className="flex flex-row justify-evenly bg-white p-2">
@@ -54,7 +54,8 @@ const MainView = () => {
           className="bg-sky-500/75 hover:bg-sky-400/50 m-2 rounded-md px-5 py-5 text-sm font-medium text-white"
           aria-current="page"
         >
-          <img rel="icon" src="/birdFP.png" alt="logo" />
+          <Image rel="icon" src="/birdFP.png" alt="logo" width='30' height='30'/>
+
         </Link>
       </div>
     </div>

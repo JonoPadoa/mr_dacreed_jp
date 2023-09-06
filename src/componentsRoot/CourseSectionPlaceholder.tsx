@@ -1,8 +1,6 @@
 import React, { useState, type ChangeEvent } from "react";
 import Image from "next/image";
 
-
-
 // ===============>  NOT CONNECTED TO DB <==================== //
 
 const CourseSectionPlaceholder = () => {

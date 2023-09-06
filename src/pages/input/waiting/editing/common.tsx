@@ -4,7 +4,7 @@ import React from "react";
 import { Header } from "~/componentsRoot/Header";
 import Rpannel from "~/componentsRoot/Rpannel";
 import AccordionMiddle2 from "~/pages/components/elenasComponents/AccordionMiddle2";
-import RpannelPlaceholder from "~/pages/components/elenasComponents/RpannelPlaceholder";
+import LpannelPlaceholder from "~/pages/components/elenasComponents/LpannelPlaceholder";
 import { useSearchParams } from "next/navigation";
 
 const Common = () => {
@@ -20,7 +20,7 @@ const Common = () => {
           <AccordionMiddle2 courseId={courseId} />
         </div>
         <div className="w-25 flex-none ">
-          <RpannelPlaceholder />
+          <LpannelPlaceholder />
         </div>
         <div className="w-25 top-15 fixed right-8 flex-none">
           <Rpannel />

@@ -3,14 +3,11 @@ import React from "react";
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
 import JPTextEditor from "./JPTextEditor";
-import Image from "next/image";
 
 const SideMenu = () => {
   const { user } = useUser();
-  // Step 2: Create a state variable to track the modal visibility
   const [isModalOpen, setModalOpen] = useState(false);
 
-  // Step 3: Define the function to handle the onClick event
   const handleFocusMode = () => {
     setModalOpen(true);
   };
@@ -49,10 +46,12 @@ const SideMenu = () => {
   return (
     <div className="container m-4 flex w-40 flex-col items-center justify-start rounded-xl bg-black">
       <div className="my-3 flex h-20 w-20 items-center justify-center rounded-lg bg-yellow-100">
-        <Image
+        <img
           className="rounded-lg"
           src={user?.profileImageUrl ?? ""}
           alt={user?.firstName ?? ""}
+          width={100}
+          height={100}
         />
       </div>
 
@@ -60,7 +59,7 @@ const SideMenu = () => {
         href="#"
         className="bg-sky-500/75 hover:bg-sky-400/50 m-4 rounded-md p-5 text-sm font-medium text-white"
         aria-current="page"
-        onClick={handleFocusMode} // <-- Add the onClick handler here
+        onClick={handleFocusMode} 
       >
         Focus on Heading
       </a>

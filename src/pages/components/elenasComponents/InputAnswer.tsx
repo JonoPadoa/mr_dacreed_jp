@@ -26,8 +26,6 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
   charsLeft,
   value,
 }) => {
-  // const sanitizedValue = value !== null ? value : '';
-
   return (
     <div>
       <div className="flex flex-col ">

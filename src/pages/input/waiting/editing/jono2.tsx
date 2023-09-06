@@ -52,7 +52,6 @@ const CourseForm: React.FC = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    // createCourse({ title: courseTitle, description: courseDescription });
   };
 
   return (

@@ -8,7 +8,6 @@ export const appRouter = createTRPCRouter({
   course: courseRouter,
   courseQuestion: courseQuestionRouter,
   newUser: newUserRouter,
-  
 });
 
 export type AppRouter = typeof appRouter;

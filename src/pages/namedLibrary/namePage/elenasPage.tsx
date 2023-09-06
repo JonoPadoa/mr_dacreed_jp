@@ -26,7 +26,6 @@ const elenasPage = () => {
       <Buttons1 />
       <Textarea />
       <SmallStaff />
-      {/* TODO: pass proper courseId or drop the page */}
  <AccordionMiddle2 courseId="" /> 
     </div>
   );

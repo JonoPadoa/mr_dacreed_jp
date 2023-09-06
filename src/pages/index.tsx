@@ -14,6 +14,7 @@ import FooterBird from "~/componentsRoot/FooterBird";
 import { useState } from "react";
 import { api } from "~/utils/api";
 import ButtonNext from "~/componentsRoot/ButtonNext";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const { user } = useUser();

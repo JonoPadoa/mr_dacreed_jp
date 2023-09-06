@@ -32,10 +32,7 @@ interface AccordionMiddle2Props {
   courseId: string;
 }
 
-
-
-
-const AccordionMiddle2 : React.FC<AccordionMiddle2Props> = ({ courseId }) => {
+const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
   const [openDescription, setOpenDescription] = useState<boolean>(false);
   const [openSections, setOpenSections] = useState<boolean>(false);
   const [openTest, setOpenTest] = useState<boolean>(false);

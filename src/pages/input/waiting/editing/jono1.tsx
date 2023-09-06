@@ -13,7 +13,6 @@ const Jono1 = () => {
           <div>
             <TopNav />
             <div className="p-2 text-3xl font-bold text-white">
-              {" "}
               {user?.firstName ? `User logged in: ${user.firstName}` : ""}
             </div>
           </div>

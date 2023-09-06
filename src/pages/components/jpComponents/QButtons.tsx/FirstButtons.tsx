@@ -178,54 +178,54 @@ const FirstButtons = () => {
     <div className="ml-4 grid shrink-0 grid-flow-col grid-rows-3 gap-4 rounded-l-lg bg-white p-4">
       <a
         href="#"
-        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
+        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
         aria-current="page"
-        onClick={handleFocusMode1} // <-- Add the onClick handler here
+        onClick={handleFocusMode1}
       >
         Multi-choice
       </a>
       {isModalOpen1 && <Modal1 />}
       <a
         href="#"
-        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
+        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
         aria-current="page"
-        onClick={handleFocusMode2} // <-- Add the onClick handler here
+        onClick={handleFocusMode2}
       >
         Open-ended
       </a>
       {isModalOpen2 && <Modal2 />}
       <a
         href="#"
-        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
+        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
         aria-current="page"
-        onClick={handleFocusMode3} // <-- Add the onClick handler here
+        onClick={handleFocusMode3}
       >
         Drag / Drop
       </a>
       {isModalOpen3 && <Modal3 />}
       <a
         href="#"
-        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
+        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
         aria-current="page"
-        onClick={handleFocusMode4} // <-- Add the onClick handler here
+        onClick={handleFocusMode4}
       >
         True / False
       </a>
       {isModalOpen4 && <Modal4 />}
       <a
         href="#"
-        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
+        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
         aria-current="page"
-        onClick={handleFocusMode5} // <-- Add the onClick handler here
+        onClick={handleFocusMode5}
       >
         Matching
       </a>
       {isModalOpen5 && <Modal5 />}
       <a
         href="#"
-        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
+        className="delay-50 m-2 flex w-80 max-w-xs flex-col items-center justify-center gap-4 rounded-xl bg-[#0284c7] p-4 text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]"
         aria-current="page"
-        onClick={handleFocusMode6} // <-- Add the onClick handler here
+        onClick={handleFocusMode6}
       >
         Multimedia
       </a>

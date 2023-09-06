@@ -6,7 +6,7 @@ const Rpannel = () => {
     <div className="container mx-4  flex flex-col bg-midsecondaryd items-center">
       Sections
 
-      <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px]  w-[135px]">
+      <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px]">
         <section className="flex flex-row items-center">
           <Image src="/rPannelIcons/cs.svg" className="mr-2 " width={20} height={20} alt={"csIcon"}/>
           <div className="flex flex-col text-left">

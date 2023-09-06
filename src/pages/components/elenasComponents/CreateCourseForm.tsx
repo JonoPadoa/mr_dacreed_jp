@@ -8,7 +8,6 @@ const CreateCourseForm: React.FC<CourseHeaderInput2Props> = ({ charsLeft }) => {
   const [title, setTitle] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [description, setDescription] = useState("");
-  // const [charsLeftState, setCharsLeftState] = useState(charsLeft);
   const [titleCharsLeft, setTitleCharsLeft] = useState(charsLeft);
   const [subHeadingCharsLeft, setSubHeadingCharsLeft] = useState(charsLeft);
   const [descriptionCharsLeft, setDescriptionCharsLeft] = useState(charsLeft);
@@ -17,22 +16,18 @@ const CreateCourseForm: React.FC<CourseHeaderInput2Props> = ({ charsLeft }) => {
     setTitleCharsLeft(150 - title.length);
   }, [title]);
 
-  // Update the state of subHeadingCharsLeft in the useEffect hook
   useEffect(() => {
     setSubHeadingCharsLeft(150 - subHeading.length);
   }, [subHeading]);
 
-  // Update the state of descriptionCharsLeft in the useEffect hook
   useEffect(() => {
     setDescriptionCharsLeft(150 - description.length);
   }, [description]);
 
-  // Update the state of subHeadingCharsLeft in the useEffect hook
   useEffect(() => {
     setSubHeadingCharsLeft(150 - subHeading.length);
   }, [subHeading]);
 
-  // Update the state of descriptionCharsLeft in the useEffect hook
   useEffect(() => {
     setDescriptionCharsLeft(150 - description.length);
   }, [description]);

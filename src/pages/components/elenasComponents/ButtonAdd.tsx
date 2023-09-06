@@ -6,7 +6,7 @@ const ButtonAdd = (props: {
     | string
     | number
     | boolean
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | React.ReactElement<unknown, string | React.JSXElementConstructor<unknown>>
     | Iterable<React.ReactNode>
     | React.ReactPortal
     | React.PromiseLikeOfReactNode

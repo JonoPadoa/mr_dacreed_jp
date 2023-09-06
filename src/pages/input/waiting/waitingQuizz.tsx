@@ -17,14 +17,10 @@ export default function WaitingQuizz() {
     wrongAnswers: 0,
   });
 
-  // const { questions } = quiz;
-  // const { question, answers, correctAnswer } = questions[activeQuestion];
-
   const { questions } = quiz;
   const questionData = questions[activeQuestion];
 
   if (!questionData) {
-    // handle the case when questionData is undefined
     return <div>There are no more questions.</div>;
   }
 
@@ -79,7 +75,6 @@ export default function WaitingQuizz() {
         </div>
 
         <div>
-          {/* <div className="flex h-48 w-96 flex-col items-center justify-center rounded-full bg-[#000925] text-2xl font-semibold text-white"> */}
           <div className="flex h-48 w-full flex-col items-center justify-center">
             <span className="text-[#000925]" style={{ fontSize: "35px" }}>
               Heres a short quiz while we create your course:
@@ -98,11 +93,11 @@ export default function WaitingQuizz() {
                   {questions?.[activeQuestion]?.question}
                 </h3>
                 {answers.map((answer: string, idx: number) => (
-                  <li
+                  <li 
                     key={idx}
                     onClick={() => onAnswerSelected(answer, idx)}
-                    className={
-                      selectedAnswerIndex === idx ? "li-selected" : "li-hover"
+                    className={ 
+                      `li-quizz-class ${selectedAnswerIndex === idx ? "li-quizz-class-selected" : "li-quizz-class-hover"}`
                     }
                   >
                     <span>{answer}</span>

@@ -34,7 +34,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
 
     ]
     .filter((answer): answer is string => answer !== null)
-     // .slice(0, 2)                                              // shows only 2 answers
+      // .slice(0, 2)                           // shows only 2 answers, and can create NOT more then 6 answers, but thy aren't connected to DB
   );
 
   const [isModal4Open, setIsModal4Open] = useState(false);
